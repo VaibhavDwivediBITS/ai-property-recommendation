@@ -1,0 +1,55 @@
+{
+  "info": {
+    "name": "AI Property Recommendation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Property Recommendations",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"user_preferences\": {\n    \"budget_min\": 300000,\n    \"budget_max\": 900000,\n    \"city\": \"Denver\",\n    \"min_bedrooms\": 3,\n    \"max_commute_time_minutes\": 45,\n    \"min_school_rating\": 7,\n    \"must_have_features\": [\"garage\"],\n    \"lifestyle_preferences\": [],\n    \"size_preference\": \"medium\",\n    \"min_garage_spaces\": 1\n  },\n  \"max_results\": 3\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/recommendations",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "v1",
+            "recommendations"
+          ]
+        }
+      }
+    }
+  ]
+}
